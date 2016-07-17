@@ -26,8 +26,8 @@ RUN test -d "~/dump1090" || \
 
 RUN cd "~/dump1090" && make clean && make
 RUN test -L "/usr/local/bin/dump1090" || \
-    ln -sf "~/dump1090/dump1090" "/usr/local/bin/dump1090"
+    ln -s "~/dump1090/dump1090" "/usr/local/bin/dump1090"
 RUN test -L "/usr/local/bin/view1090" || \
-    ln -sf "~/dump1090/view1090" "/usr/local/bin/view1090"
+    ln -s "~/dump1090/view1090" "/usr/local/bin/view1090"
 
 CMD ["/usr/local/bin/dump1090", "--net", "--interactive-rtl1090"]
