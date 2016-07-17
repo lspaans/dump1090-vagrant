@@ -14,8 +14,9 @@ build_application () {
 }
 
 clone_application () {
-    cd /vagrant
-    git clone git@github.com:MalcomRobb/dump1090.git
+    if [ ! -d /vagrant/dump1090 ]; then
+        git clone http://github.com/MalcolmRobb/dump1090.git /vagrant/dump1090
+    fi
 }
 
 link_application () {
@@ -24,6 +25,10 @@ link_application () {
             ln -s "/vagrant/dump1090/$binary" "$PREFIX/bin/$binary"
         fi
     done
+
+    if [ ! -L "/home/vagrant/public_html" ]; then
+        ln -s "/vagrant/dump1090/public_html" "/home/vagrant/public_html"
+    fi
 }
 
 install_packages () {
@@ -45,24 +50,30 @@ install_script () {
     chmod 755 "$SCRIPT"
 }
 
-install_script redeploy <<'EOF'
+main () {
+    install_script redeploy <<'EOF'
 #!/bin/sh
 sudo sh /vagrant/deploy.sh
 EOF
 
-apt-get update -y
+    apt-get update -y
 
-install_packages \
-    airspy \
-    alsa-utils \
-    build-essential \
-    librtlsdr \
-    librtlsdr-dev \
-    libusb-1.0-0 \
-    libusb-1.0-0-dev \
+    install_packages \
+        airspy \
+        alsa-utils \
+        build-essential \
+        git \
+        pkg-config \
+        rtl-sdr \
+        librtlsdr-dev \
+        libusb-1.0-0 \
+        libusb-1.0-0-dev \
 
-clone_application
+    clone_application
 
-build_application
+    build_application
 
-link_application
+    link_application
+}
+
+main
