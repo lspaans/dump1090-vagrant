@@ -9,7 +9,7 @@ This repository augments the '[dump1090](https://github.com/MalcolmRobb/dump1090
 Installation
 ------------
 
-Provided you already have [`VirtualBox`](https://www.virtualbox.org/wiki/Downloads) and [`Vagrant`](https://www.vagrantup.com/downloads.html) installed, you should get a working Debian Jessie 64-bit environment with runnable Dump1090-binaries in `/usr/local/bin` by typing `vagrant up` in the repository directory.
+Provided you already have [`VirtualBox`](https://www.virtualbox.org/wiki/Downloads) and [`Vagrant`](https://www.vagrantup.com/downloads.html) installed, you should get a working [Debian Jessie 64-bit](https://atlas.hashicorp.com/debian/boxes/jessie64) environment with runnable Dump1090-binaries in `/usr/local/bin` by typing `vagrant up` in the repository directory.
 
 Credits
 -------
