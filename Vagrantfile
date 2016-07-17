@@ -12,10 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "debian/jessie64"
 
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "http://vagrant.huntingbears.nl/vagrant-centos-6.5-x86_64.box"
-
   # The VM hostname
   config.vm.hostname = "dump1090.localdomain"
 
@@ -40,7 +36,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Do not auto-mount (with the wrong ownership) '/vagrant'
   config.vm.synced_folder ".", "/vagrant", :mount_options => [ "dmode=775", "fmode=775" ]
 
+  config.vm.provider "virtualbox" do |vm|
+    vm.customize ["modifyvm", :id, "--usb", "on"]
+    vm.customize ["modifyvm", :id, "--usbehci", "on"]
+  end
+
   # The VM provisioning script
   config.vm.provision "shell", path: "deploy.sh"
-
 end
