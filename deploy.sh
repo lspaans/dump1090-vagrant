@@ -81,7 +81,7 @@ EOF
 
     install_script start-multimon-ng-POCSAG-NL.sh <<'EOF'
 #!/bin/sh
-"/usr/local/bin/rtl_fm" -f 172.45e6 -s 22050 -g 100 - | \
+"/usr/bin/rtl_fm" -f 172.45e6 -s 22050 -g 100 - | \
     "/usr/local/bin/multimon-ng" -c -a POCSAG512 -a POCSAG1200 -a POCSAG2400 -t raw -
 EOF
 
