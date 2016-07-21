@@ -29,4 +29,4 @@ Credits
 
 [Dump1090](https://www.github.com/antirez/dump1090) was written by Salvatore Sanfilippo antirez@gmail.com and is released under the BSD three clause license. This repository uses the [Dump1090 adaption](https://github.com/MalcolmRobb/dump1090) done by Malcolm Robb.
 
-[MultimonNG](https://www.github.com/EliasOenal/multimonNG) was written by Elias Oenal and is released under the GNU General public license.
+[MultimonNG](https://www.github.com/EliasOenal/multimonNG) was written by Tom Sailer and adapted by Elias Oenal and is released under the GNU General public license.
