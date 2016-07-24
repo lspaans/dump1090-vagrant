@@ -71,7 +71,7 @@ clone_dump1090 () {
 }
 
 clone_multimon_ng () {
-    printf 'multimon-ng' >&2
+    printf 'multimon-ng ' >&2
 
     if [ ! -d "/vagrant/multimon-ng" ]; then
         git clone http://github.com/EliasOenal/multimon-ng.git \
@@ -205,6 +205,7 @@ EOF
         librtlsdr-dev \
         libusb-1.0-0 \
         libusb-1.0-0-dev \
+        ntp \
         pkg-config \
         qt5-default \
         rtl-sdr \
