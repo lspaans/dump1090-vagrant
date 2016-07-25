@@ -96,7 +96,7 @@ clone_applications () {
         return 1
     fi
 
-    printf 'Success!\n'
+    printf 'Success!\n' >&2
 
     return 0
 }
@@ -167,7 +167,7 @@ update_distribution () {
         printf 'Failed!\n' >&2
     fi
 
-    printf 'Success!\n'
+    printf 'Success!\n' >&2
 
     return 0
 }
